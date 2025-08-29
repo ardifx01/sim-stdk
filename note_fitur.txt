@@ -1,0 +1,70 @@
+1. Anggota ✔
+- Verifikasi anggota ✔
+- Pengelolaan
+    - tambah ✔
+    - edit ✔
+    - hapus ✔
+
+2. Kegiatan ✔
+- Pengelolaan
+    - tambah ✔
+    - edit ✔
+    - hapus ✔
+
+3. Absensi ✖
+- Pengelolaan
+    - tambah 
+    - edit 
+    - hapus 
+
+4. Keuangan ✖
+- Pengelolaan
+    - tambah 
+    - edit 
+    - hapus 
+
+5. Galeri ✔
+- Pengelolaan 
+    - tambah ✔
+    - edit ✔
+    - hapus ✔
+
+6. Inventaris ✔
+- Pengelolaan
+    - tambah ✔
+    - edit ✔
+    - hapus ✔
+
+7. Berita ✔
+- Pengelolaan
+    - tambah ✔
+    - edit ✔
+    - hapus ✔
+
+7. Register ✖
+
+8. Login ✔
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

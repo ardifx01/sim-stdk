@@ -1,0 +1,124 @@
+@import 'bootstrap';
+
+:root {
+    --buttonAdd : #6246ea;
+    --buttonUpdate : #007bff;
+    --buttonDelete : #F7374F;
+    --buttonDetail : #ffd803;
+    --buttonVerifikasi : #ffd803;
+    --headline : #272343;
+    --paragraph : #2d334a;
+    --cardbackgound :#272343;
+    --backgroundAll :#fffffe;
+}
+
+.main {
+min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: var(--backgroundAll);
+}
+
+h1 {
+    font-family: "Fira Code", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--headline);
+    /* letter-spacing: 2px; */
+}
+
+h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.70rem;
+    color: var(--paragraph);
+}
+
+p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: var(--paragraph);
+}
+
+input, label {
+    color: var(--paragraph);
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.button-add {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--buttonAdd);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+.shadow-table {
+    box-shadow: 5px 0px 17px 8px rgba(0,0,0,0.04);
+-webkit-box-shadow: 5px 0px 17px 8px rgba(0,0,0,0.04);
+-moz-box-shadow: 5px 0px 17px 8px rgba(0,0,0,0.04);
+}
+
+
+:hover.shadow-table {
+    box-shadow: 5px 0px 17px 8px rgba(0,0,0,0.07);
+-webkit-box-shadow: 5px 0px 17px 8px rgba(0,0,0,0.07);
+-moz-box-shadow: 5px 0px 17px 8px rgba(0,0,0,0.07);
+    transition: 0.3s ease;
+}
+
+.button {
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+.button-add:hover {
+    background-color: #5b3fdb;
+   
+}
+
+.btn-update {
+    background-color: var(--buttonUpdate);
+   
+}
+
+.btn-delete{
+    background-color: var(--buttonDelete);
+   
+}
+.btn-detail{
+    background-color: var(--buttonDetail);
+}
+
+.btn-add:hover {
+    background-color: #5b3fdb;
+}
+
+.btn-update:hover {
+    background-color: rgb(25, 121, 224);
+}
+
+.btn-delete:hover {
+    background-color: #ea1f37;
+}
+
+.btn-detail:hover {
+    background-color: #7ab0d9;
+}
+
