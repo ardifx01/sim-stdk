@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('activity_id')->constrained('activities');
-            $table->date('tanggal');
+            $table->foreignId('activity_id')->constrained();
+            $table->enum('status',  ['hadir', 'tidak hadir'])->default('tidak hadir');
             $table->timestamps();
         });
     }
