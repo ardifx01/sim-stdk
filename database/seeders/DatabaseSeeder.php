@@ -76,6 +76,20 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('password'), // atau Hash::make('password')
         ]);
+        User::create([
+            'nama' => 'Gabo',
+            'umur' => 23,
+            'pekerjaan' => 'Perawat',
+            'foto' => '',
+            'alamat' => 'Br Paneca',
+            'no_telepon' => '085123312456',
+            'jabatan' => "anggota",
+            'status' => "aktif",
+            'jenis_kelamin' => "laki laki",
+            'email' => 'gabo@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'), // atau Hash::make('password')
+        ]);
         User::factory(10)->create();
         Galery::factory(10)->create();
         Activities::factory(10)->create();

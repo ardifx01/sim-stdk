@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama')->nullable();
             $table->tinyInteger('umur')->nullable();
             $table->string('pekerjaan')->nullable();
             $table->string('foto')->nullable();
             $table->string('alamat')->nullable();
-            $table->string('no_telepon');
+            $table->string('no_telepon')->nullable();
             $table->enum('jabatan', ['ketua', 'wakil ketua', 'sekretaris', 'bendahara', 'anggota', 'tamu'])->default('tamu');
             $table->enum('status', ['aktif', 'tidak aktif', 'menikah'])->default('tidak aktif');
             $table->enum('jenis_kelamin', ['laki laki', 'perempuan']);

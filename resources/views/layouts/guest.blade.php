@@ -23,9 +23,9 @@
         <main class="p-3 main " id="main">
             <div class="container">
                 <div class="row align-items-center min-vh-100 justify-content-center layout">
-                    <div class="col-md-5">
-                        {{ $slot }}
-                    </div>
+                    {{-- <div class="col-md-5"> --}}
+                    {{ $slot }}
+                    {{-- </div> --}}
                 </div>
             </div>
         </main>

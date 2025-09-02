@@ -1,12 +1,25 @@
 @import 'bootstrap';
 
-body {
-    background: url('/public/img/bg.jpg') rgba(0,0,0,0.3);
-    background-blend-mode: multiply;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+:root {
+    --buttonAdd : #6246ea;
+    --buttonUpdate : #007bff;
+    --buttonDelete : #F7374F;
+    --buttonDetail : #ffd803;
+    --buttonVerifikasi : #ffd803;
+    --headline : #fffffe;
+    --paragraph : #a7a9be;
+    --cardbackgound :#272343;
+    --backgroundAll :#fffffe;
 }
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #0f0e17 !important;
+}
+
 
 @media(max-width: 991px) {
     .sidebar {
@@ -14,3 +27,6 @@ body {
         backdrop-filter: blur(10px);
     }
 }
+
+
+

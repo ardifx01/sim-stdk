@@ -1,64 +1,74 @@
 <?php
 
 use App\Livewire\Auth\Login;
+use Illuminate\Support\Facades\Route;
 
 // Dashboard
-
-
+use App\Livewire\Dashboard\Index as DashboardIndex;
 
 // Anggota
-use Illuminate\Support\Facades\Route;
-use App\Livewire\Berita\Edit as BeritaEdit;
-use App\Livewire\Berita\Show as BeritaShow;
-use App\Livewire\Galeri\Edit as GaleriEdit;
-use App\Livewire\Galeri\Show as GaleriShow;
-
-// Kegiatan
+use App\Livewire\Anggota\Index as AnggotaIndex;
+use App\Livewire\Anggota\Create as AnggotaCreate;
+use App\Livewire\Anggota\Verifikasi as AnggotaVerifikasi;
 use App\Livewire\Anggota\Edit as AnggotaEdit;
 use App\Livewire\Anggota\Show as AnggotaShow;
-use App\Livewire\Berita\Index as BeritaIndex;
-use App\Livewire\Galeri\Index as GaleriIndex;
+
+
+// Kegiatan
+use App\Livewire\Kegiatan\Index as KegiatanIndex;
+use App\Livewire\Kegiatan\Create as KegiatanCreate;
+use App\Livewire\Kegiatan\Edit as KegiatanEdit;
+use App\Livewire\Kegiatan\Show as KegiatanShow;
+
 
 // Absensi
 use App\Livewire\Absensi\Index as AbsensiIndex;
 
 // Keuangan
-use App\Livewire\Anggota\Index as AnggotaIndex;
-use App\Livewire\Berita\Create as BeritaCreate;
-use App\Livewire\Galeri\Create as GaleriCreate;
-use App\Livewire\Kegiatan\Edit as KegiatanEdit;
-
-// Galeri
-use App\Livewire\Kegiatan\Show as KegiatanShow;
+use App\Livewire\Keuangan\Index as KeuanganIndex;
+use App\Livewire\Keuangan\Create as KeuanganCreate;
 use App\Livewire\Keuangan\Edit as KeuanganEdit;
 use App\Livewire\Keuangan\Show as KeuanganShow;
-use App\Livewire\Anggota\Create as AnggotaCreate;
+
+// Galeri
+use App\Livewire\Galeri\Index as GaleriIndex;
+use App\Livewire\Galeri\Create as GaleriCreate;
+use App\Livewire\Galeri\Edit as GaleriEdit;
+use App\Livewire\Galeri\Show as GaleriShow;
 
 // Inventaris
-use App\Livewire\Kegiatan\Index as KegiatanIndex;
-use App\Livewire\Keuangan\Index as KeuanganIndex;
-use App\Livewire\Dashboard\Index as DashboardIndex;
+use App\Livewire\Inventaris\Index as InventarisIndex;
+use App\Livewire\Inventaris\Create as InventarisCreate;
 use App\Livewire\Inventaris\Edit as InventarisEdit;
+use App\Livewire\Inventaris\Show as InventarisShow;
+
 
 // Berita
-use App\Livewire\Inventaris\Show as InventarisShow;
-use App\Livewire\Kegiatan\Create as KegiatanCreate;
-use App\Livewire\Keuangan\Create as KeuanganCreate;
-use App\Livewire\Inventaris\Index as InventarisIndex;
+use App\Livewire\Berita\Index as BeritaIndex;
+use App\Livewire\Berita\Create as BeritaCreate;
+use App\Livewire\Berita\Edit as BeritaEdit;
+use App\Livewire\Berita\Show as BeritaShow;
+
+// Profil
+use App\Livewire\Profil\Index as ProfilIndex;
+use App\Livewire\Profil\Update as ProfilUpdate;
 
 
-use App\Livewire\Inventaris\Create as InventarisCreate;
-use App\Livewire\Anggota\Verifikasi as AnggotaVerifikasi;
+// Users Landing page
 use App\Livewire\Users\Berita;
 use App\Livewire\Users\Home;
 use App\Livewire\Users\Galeri;
 use App\Livewire\Users\Kegiatan;
 use App\Livewire\Users\Keuangan;
 
+use App\Livewire\Auth\Register;
+
 // Route::get('/landingpage', Login::class)->middleware('guest');
 // Route::get('/landingpage', function () {
 //     return view('layouts.landingpage');
 // });
+
+Route::get('/register', Register::class)->name('register')->middleware('guest');
 
 Route::get('/', Login::class)->name('login')->middleware('guest');
 Route::get('/login', Login::class)->name('login')->middleware('guest');
@@ -70,9 +80,18 @@ Route::get('/galeri-stt', Galeri::class)->name('users.galeri');
 Route::get('/berita-stt', Berita::class)->name('users.berita');
 
 
+Route::middleware(['auth', 'profil'])->group(function () {
+    Route::prefix('profil')->group(function () {
+        Route::get('/', ProfilIndex::class)->name('profil.index');
+        Route::get('/update', ProfilUpdate::class)->name('profil.update');
+        // Route::get('/create', ProfilCreate::class)->name('profil.create');
+        // Route::get('/edit/{id}', ProfilEdit::class)->name('profil.edit');
+        // Route::get('/show/{id}', ProfilShow::class)->name('profil.show');
+    });
+});
 
-Route::middleware('auth')->group(function () {
 
+Route::middleware(['auth', 'admin'])->group(function () {
     // dashboard
     Route::get('/dashboard', DashboardIndex::class)->name('dashboard.index');
 
@@ -123,6 +142,13 @@ Route::middleware('auth')->group(function () {
     });
 
     // berita
+    Route::prefix('berita')->group(function () {
+        Route::get('/', BeritaIndex::class)->name('berita.index');
+        Route::get('/create', BeritaCreate::class)->name('berita.create');
+        Route::get('/edit/{id}', BeritaEdit::class)->name('berita.edit');
+        Route::get('/show/{id}', BeritaShow::class)->name('berita.show');
+    });
+
     Route::prefix('berita')->group(function () {
         Route::get('/', BeritaIndex::class)->name('berita.index');
         Route::get('/create', BeritaCreate::class)->name('berita.create');

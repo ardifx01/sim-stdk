@@ -18,7 +18,7 @@
     @livewireStyles
 </head>
 
-<body class="overflow-hidden vh-100">
+<body class="vh-100">
     {{-- navbar --}}
     <x-sidebar-users />
 
